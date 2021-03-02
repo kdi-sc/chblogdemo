@@ -1,0 +1,27 @@
+{
+  "name": "caas-sample",
+  "version": "0.0.1",
+  "description": "A sample Next.js site which consumes the Sitecore CaaS API",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^9.5.3",
+    "next-seo": "^4.20.0",
+    "next-themes": "0.0.12",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "sass": "^1.32.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss7-compat": "^2.0.3",
+    "autoprefixer": "^9.8.6",
+    "postcss": "^7.0.35",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3"
+  }
+}
