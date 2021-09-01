@@ -10,7 +10,7 @@ export async function getServerSideProps() {
         //const pageData = await client.fetch(pageQuery);
         const pageData = {
             webPage: {
-                title: "Sitecore and Next.js",
+                title: "Sitecore Content Hub and Next.js",
                 body: "Blog | Powered By Next.js and Sitecore Experience Edge"
             }
         };
