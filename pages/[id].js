@@ -9,7 +9,7 @@ export async function getStaticProps(context) {
             allM_Content_Blog(id:"${context.params.id}") {
                 id
                 blog_Title
-                blog_Description
+                blog_Body
             }
         }`;
 
@@ -77,13 +77,13 @@ export default function Content({data}) {
     return (
         <div>
             <Head>
-                <title>{data.recipe_Title || "unknown"}</title>
+                <title>{data.blog_Title || "unknown"}</title>
             </Head>
             <main>
                 <Link href="/">Home</Link>
                 <h1>{data.blog_Title || "unknown"}</h1>
-                <h2>Ingredients</h2>
-                <div dangerouslySetInnerHTML={{ __html: data.blog_Description || "unknown" }}></div>
+                <h2>Body</h2>
+                <div dangerouslySetInnerHTML={{ __html: data.blog_Body || "unknown" }}></div>
             </main>
         </div>
     )

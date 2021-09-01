@@ -21,6 +21,7 @@ export async function getServerSideProps() {
                 results {
                 id
                 blog_Title
+                blog_Body
                 }
                 }
                 }`;
