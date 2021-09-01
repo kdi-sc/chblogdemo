@@ -6,13 +6,10 @@ export async function getStaticProps(context) {
     try {
         var client = new Client();
         var query = `{
-            m_Content(id:"${context.params.id}") {
+            allM_Content_Blog(id:"${context.params.id}") {
                 id
-                recipe_Title
-                recipe_Ingredients
-                recipe_Cookinginstructions
-                recipe_Description
-                recipe_Shortdescription
+                blog_Title
+                blog_Description
             }
         }`;
 
@@ -50,7 +47,7 @@ export async function getStaticPaths() {
                 first: 10,
                 where:{
                     contentTypeToContent: {
-                        m_ContentType_ids:["M.ContentType.Recipe"]
+                        m_ContentType_ids:["M.ContentType.Blog"]
                     }
                 }
             ) {
@@ -84,12 +81,9 @@ export default function Content({data}) {
             </Head>
             <main>
                 <Link href="/">Home</Link>
-                <h1>{data.recipe_Title || "unknown"}</h1>
-                <p>{data.recipe_Shortdescription || "unknown"}</p>
+                <h1>{data.blog_Title || "unknown"}</h1>
                 <h2>Ingredients</h2>
-                <div dangerouslySetInnerHTML={{ __html: data.recipe_Ingredients || "unknown" }}></div>
-                <h2>Method</h2>
-                <div dangerouslySetInnerHTML={{ __html: data.recipe_Cookinginstructions  || "unknown" }}></div>
+                <div dangerouslySetInnerHTML={{ __html: data.blog_Description || "unknown" }}></div>
             </main>
         </div>
     )

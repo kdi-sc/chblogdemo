@@ -19,6 +19,7 @@ export async function getServerSideProps() {
                 allM_Content_Blog {
                 total
                 results {
+                id
                 blog_Title
                 }
                 }
