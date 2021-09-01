@@ -80,7 +80,6 @@ export default function Content({data}) {
             <main>
                 <Link href="/">Home</Link>
                 <h1>{data.blog_Title || "unknown"}</h1>
-                <h2>Body</h2>
                 <div dangerouslySetInnerHTML={{ __html: data.blog_Body || "unknown" }}></div>
             </main>
         </div>
