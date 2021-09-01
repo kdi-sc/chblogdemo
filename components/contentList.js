@@ -12,9 +12,8 @@ export default function List({ data }) {
         <div>
             <ul>
                 {data.map((content) => (
-                    <li key={content.id}>
-                      
-                        <Link href={`/${content.id}`}>{content.content_Name}</Link>
+                    <li key={content.id}>               
+                        <Link href={`/${content.id}`}>{content.blog_Title}</Link>
                     </li>
                 ))}            
             </ul>

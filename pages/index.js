@@ -17,12 +17,12 @@ export async function getServerSideProps() {
 
         var blogQuery = `{
                 allM_Content_Blog {
-                  total
-                  results {
-                    id
-                    content_Name
-              } }
-              }`;
+                total
+                results {
+                blog_Title
+                }
+                }
+                }`;
               
         const blogData = await client.fetch(blogQuery);
 
@@ -53,11 +53,6 @@ export default function Home({data, content}) {
             <Head>
                 <title>{content.webPage.title}</title>
             </Head>
-
-
-
-
-
 
             <main>
                 <h1>{content.webPage.title}</h1>
