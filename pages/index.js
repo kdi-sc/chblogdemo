@@ -2,7 +2,7 @@ import Head from "next/head";
 import Client from "../util/caasClient";
 import List from "../components/contentList";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     try {
         var client = new Client();
 
@@ -23,6 +23,7 @@ export async function getStaticProps() {
                     content_Name
               } }
               }`;
+              
         const blogData = await client.fetch(blogQuery);
 
         return {
