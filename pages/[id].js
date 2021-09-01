@@ -2,17 +2,12 @@ import Head from "next/head";
 import Client from "../util/caasClient";
 import Link from "next/link";
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
     try {
         var client = new Client();
         var query = `{
             m_Content(id:"${context.params.id}") {
                 id
-                recipe_Title
-                recipe_Ingredients
-                recipe_Cookinginstructions
-                recipe_Description
-                recipe_Shortdescription
             }
         }`;
 
@@ -41,7 +36,7 @@ export async function getStaticProps(context) {
     }
 };
 
-export async function getStaticPaths() {
+export async function getServerSidePaths() {
     let data = [];
     try {
         var client = new Client();
@@ -84,12 +79,12 @@ export default function Content({data}) {
             </Head>
             <main>
                 <Link href="/">Home</Link>
-                <h1>{data.recipe_Title || "unknown"}</h1>
+                {/* <h1>{data.recipe_Title || "unknown"}</h1>
                 <p>{data.recipe_Shortdescription || "unknown"}</p>
                 <h2>Ingredients</h2>
                 <div dangerouslySetInnerHTML={{ __html: data.recipe_Ingredients || "unknown" }}></div>
                 <h2>Method</h2>
-                <div dangerouslySetInnerHTML={{ __html: data.recipe_Cookinginstructions  || "unknown" }}></div>
+                <div dangerouslySetInnerHTML={{ __html: data.recipe_Cookinginstructions  || "unknown" }}></div> */}
             </main>
         </div>
     )
