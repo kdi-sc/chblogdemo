@@ -2,29 +2,27 @@ import Head from "next/head";
 import Client from "../util/caasClient";
 import Link from "next/link";
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
     try {
+       
         var client = new Client();
         var query = `{
-            allM_Content_Blog(id:"${context.params.id}") {
-                id
-                blog_Title
-                blog_Body
-            }
+            allM_Content_Blog(where: 
+                {id_eq:"${context.params.id}"}) {
+                  results
+                  {
+                   id
+                   blog_Title
+                   blog_Body
+                  }
+              }
         }`;
-
-        /*
-        recipe_Title
-        recipe_Shortdescription
-        recipe_Ingredients
-        recipe_Cookinginstructions
-        */
 
         const data = await client.fetch(query);
 
         return {
             props: {
-                data: data.m_Content
+                data: data.allM_Content_Blog.results[0]
             }
         }
     }
@@ -38,7 +36,7 @@ export async function getStaticProps(context) {
     }
 };
 
-export async function getStaticPaths() {
+export async function getServerSidePaths() {
     let data = [];
     try {
         var client = new Client();
@@ -73,7 +71,7 @@ export async function getStaticPaths() {
     }
 }
 
-export default function Content({data}) {    
+export default function Content({data}) { 
     return (
         <div>
             <Head>
