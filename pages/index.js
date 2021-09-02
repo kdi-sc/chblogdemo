@@ -51,13 +51,14 @@ export default function Home({data, content}) {
         list = data.allM_Content_Blog.results;
 
     return (
-        <div>
+        <div className="container">
             <Head>
                 <title>{content.webPage.title}</title>
+                <link rel="icon" href="/public/favicon.ico" />
             </Head>
 
-            <main>
-                <h1>{content.webPage.title}</h1>
+            <main  className="main">
+                <h1  className="title">{content.webPage.title}</h1>
                 <div dangerouslySetInnerHTML={{ __html: content.webPage.body || "unknown" }}></div>                
                 <List data={list} />
             </main>

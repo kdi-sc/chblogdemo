@@ -73,14 +73,14 @@ export async function getServerSidePaths() {
 
 export default function Content({data}) { 
     return (
-        <div>
+        <div className="container">
             <Head>
                 <title>{data.blog_Title || "unknown"}</title>
             </Head>
-            <main>
+            <main className="main">
                 <Link href="/">Home</Link>
-                <h1>{data.blog_Title || "unknown"}</h1>
-                <div dangerouslySetInnerHTML={{ __html: data.blog_Body || "unknown" }}></div>
+                <h1 className="title">{data.blog_Title || "unknown"}</h1>
+                <div className="blog" dangerouslySetInnerHTML={{ __html: data.blog_Body || "unknown" }}></div>
             </main>
         </div>
     )
