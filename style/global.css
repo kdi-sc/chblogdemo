@@ -144,5 +144,10 @@ a {
       width: 100%;
       flex-direction: column;
     }
+    @media (min-width: 1200px) {
+      .container {
+        width: 1024px;
+      }
+    }
   }
   
