@@ -7,19 +7,20 @@ export default function List({ data }) {
                 <p>No content</p>
             </div>
         )
-   
+    if(data){
     data.forEach(blog => {
         if(blog.blog_Body){
         blog.blog_Body = blog.blog_Body.substring(0,200) + "..."; 
         }
     });
+}
     
 
     return (
         <div className="grid">
             <ul>
                 {data.map((content) => (
-                    <div className="card">
+                    <div className="card" key={content.id}>
                     <li key={content.id}>               
                         <div className="blogtitle"><Link href={`/${content.id}`}>{content.blog_Title}</Link></div>
                         <div dangerouslySetInnerHTML={{ __html: content.blog_Body || "unknown" }}></div>
