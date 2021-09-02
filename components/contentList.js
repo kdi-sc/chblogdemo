@@ -7,10 +7,13 @@ export default function List({ data }) {
                 <p>No content</p>
             </div>
         )
-    
+   
     data.forEach(blog => {
+        if(blog.blog_Body){
         blog.blog_Body = blog.blog_Body.substring(0,200) + "..."; 
+        }
     });
+    
 
     return (
         <div className="grid">
